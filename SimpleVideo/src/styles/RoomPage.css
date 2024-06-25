@@ -1,0 +1,463 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Belanosima", sans-serif;
+}
+
+body {
+  background-color: #262625;
+  overflow: hidden;
+}
+
+input:focus {
+  outline: none;
+}
+
+.participant-name {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  padding-bottom: 30px;
+}
+
+.participant-name::-webkit-scrollbar {
+  display: none;
+}
+
+.actual-chat {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.actual-chat::-webkit-scrollbar {
+  display: none;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  background-color: #262625;
+}
+
+.navbar img {
+  height: 40px 40px;
+  margin-left: 30px;
+}
+
+.navbar-button {
+  margin-right: 60px;
+  display: flex;
+  gap: 2rem;
+}
+
+.navbar-button a {
+  text-decoration: none;
+  color: #262625;
+  background-color: rgb(162, 191, 254);
+  border-radius: 18px;
+  margin-top: 20px;
+  margin-bottom: 35px;
+  padding: 12px 30px;
+  font-weight: bold;
+}
+
+.room {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  max-height: 100vh;
+  min-height: 100vh;
+}
+
+.participants-section {
+  max-height: 100vh;
+  min-height: 100vh;
+}
+
+.participants-section-heading {
+  background-color: #1a1a1a;
+}
+
+.participants-section-heading h2 {
+  color: white;
+  padding: 20px 10px;
+  text-align: center;
+}
+
+.video-section {
+  background-color: #1a1a1a;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-height: 100vh;
+  min-height: 100vh;
+}
+
+.participant-name {
+  padding-bottom: 20px;
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: flex-start;
+  gap: 1rem;
+  max-height: calc(100vh - 160px);
+  min-height: calc(100vh - 200px);
+  overflow-y: auto;
+}
+
+.participant-name p {
+  color: white;
+  font-size: 1.3rem;
+  text-align: center;
+  background-color: rgb(162, 191, 254);
+  padding-top: 12px;
+  padding-bottom: 12px;
+  color: #262625;
+  width: 130px;
+  margin: 3px auto;
+  border-radius: 18px;
+  border: 2px solid #262625;
+}
+
+.video-section-1 {
+  position: relative;
+  max-width: 722px;
+  padding-top: 30px;
+  /* display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  gap: 1rem;
+  padding-bottom: 11px;
+}
+
+.video-section-1 video {
+  border: 2px solid rgb(162, 191, 254);
+  border-radius: 23px;
+  position: relative;
+  height: 100%;
+  width: 300px;
+}
+
+.video-section-2 {
+  padding-bottom: 80px;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.video-section-2-img {
+  display: none;
+}
+
+.video-section-2 img {
+  height: 50px;
+  width: 50px;
+  cursor: pointer;
+}
+
+.chat-section {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: #262625;
+  overflow-y: auto;
+  height: calc(100vh - 100px);
+}
+
+.chat-section-heading {
+  background-color: #1a1a1a;
+}
+
+.chat-section-heading h2 {
+  color: white;
+  padding: 20px 10px;
+  text-align: center;
+}
+
+.actual-chat {
+  max-height: 100%;
+  min-height: calc(100% - 97px);
+  padding: 5px 10px;
+  overflow-y: auto;
+}
+
+.actual-chat h4 {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  color: white;
+  text-align: center;
+}
+
+.actual-chat-2 .message {
+  position: relative;
+  background: rgb(162, 191, 254);
+  padding: 10px;
+  border-radius: 8px;
+  margin: 8px 8px;
+  color: #1a1a1a;
+  text-align: center;
+}
+
+.actual-chat-2 .left {
+  float: left;
+  clear: both;
+}
+
+.actual-chat-2 .right {
+  float: right;
+  clear: both;
+}
+
+.chat-section-input {
+  /* padding: 2px 3px; */
+  width: 100%;
+  display: flex;
+  /* justify-content: space-evenly; */
+}
+
+.merainput {
+  background-color: #1a1a1a;
+  color: white;
+  padding: 8px 8px;
+  width: 100%;
+  border: none;
+  flex-shrink: 1;
+}
+
+.merabutton {
+  flex-shrink: 1;
+  border: none;
+  padding: 5px 6px;
+  background-color: rgb(162, 191, 254);
+  color: #262625;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.show-participants {
+  background-color: #262625;
+  display: none;
+  position: absolute;
+  bottom: 0;
+  left: 15px;
+  width: 250px;
+  max-height: 300px;
+  min-height: 300px;
+  overflow-y: auto;
+  border: 2px solid black;
+  border-radius: 23px;
+  transition: all 0.5s ease-in-out;
+}
+
+.crossimg {
+  display: none;
+}
+
+.show-chat {
+  background-color: #262625;
+  position: absolute;
+  display: none;
+  bottom: 0;
+  right: 15px;
+  width: 300px;
+  min-height: 300px;
+  max-height: 300px;
+  overflow-y: auto;
+  border: 2px solid black;
+  border-radius: 23px;
+  transition: all 0.5s ease-in-out;
+}
+.spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-left-color: #007bff;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media only screen and (max-width: 1229px) {
+  .video-section-1 div {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}
+
+@media only screen and (max-width: 1006px) {
+  .video-section-1 div {
+    margin-left: 8px;
+    margin-right: 8px;
+    max-width: 300px;
+    min-width: 250px;
+    padding-bottom: 20px;
+  }
+}
+
+@media only screen and (max-width: 939px) {
+  .participants-section {
+    display: none;
+  }
+
+  .chat-section {
+    display: none;
+  }
+
+  .crossimg {
+    display: block;
+    position: relative;
+    top: -23px;
+    right: -267px;
+    height: 20px;
+    width: 20px;
+  }
+
+  .room {
+    display: flex;
+    justify-content: center;
+  }
+
+  .video-section {
+    width: 100%;
+  }
+
+  .video-section-2-img {
+    display: block;
+  }
+
+  .show {
+    display: block;
+  }
+
+  .show-chat-border {
+    background-color: #262625;
+  }
+
+  .show-chat-section-heading {
+    color: white;
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 5px;
+  }
+
+  .show-actual-chat {
+    color: white;
+    text-align: center;
+  }
+
+  .show-actual-chat .show-actual-chat-2 {
+    position: relative;
+    padding: 15px;
+    background-color: #262625;
+    padding-bottom: 30px;
+    overflow-y: auto;
+  }
+
+  .chat-section-input .show-actual-chat-2 div {
+    position: relative;
+  }
+
+  .show-actual-chat-2 .message {
+    position: relative;
+    background: rgb(162, 191, 254);
+    padding: 15px;
+    border-radius: 8px;
+    margin: 8px 8px;
+    color: #1a1a1a;
+    text-align: center;
+  }
+
+  .show-actual-chat-2 .left {
+    float: left;
+    clear: both;
+  }
+
+  .show-actual-chat-2 .right {
+    float: right;
+    clear: both;
+  }
+
+  .show-chat-section-input {
+    position: fixed;
+    bottom: 0px;
+    display: flex;
+  }
+
+  .show-merainput {
+    background-color: #1a1a1a;
+    color: white;
+    border-radius: 10px;
+    padding: 3px 63px;
+    border: none;
+  }
+
+  .show-merabutton {
+    color: #262625;
+    background-color: rgb(162, 191, 254);
+    padding: 7px 8px;
+    border: none;
+    border-radius: 8px;
+  }
+
+  /* ///////////////////////////////  */
+
+  /* ////////////////////////////// */
+  .show-participants-border {
+    background-color: #262625;
+  }
+
+  .show-participants-section-heading {
+    padding-top: 15px;
+    padding-bottom: 5px;
+    text-align: center;
+    color: white;
+  }
+
+  .show-participant-name {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .show-single-participant-name {
+    padding: 10px;
+    text-align: center;
+    background-color: rgb(162, 191, 254);
+    color: #262625;
+    width: 40%;
+    margin: auto;
+    border-radius: 18px;
+  }
+}
+
+@media only screen and (max-width: 651px) {
+  .video-section-1 {
+    flex-direction: column;
+    flex-shrink: 0;
+    gap: 1.2rem;
+    max-height: 1200px;
+  }
+
+  .video-section {
+    overflow-y: scroll;
+    justify-content: flex-start;
+  }
+
+  .video-section-2 {
+    padding-bottom: 120px;
+    flex-shrink: 0;
+  }
+}

@@ -1,0 +1,122 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Belanosima', sans-serif;
+}
+
+body {
+    background-color: #262625;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    background-color: #262625;
+}
+
+.navbar img {
+    height: 40px 40px;
+    margin-left: 30px;
+}
+
+.navbar-button {
+    margin-right: 60px;
+    display: flex;
+    gap: 2rem;
+}
+
+.navbar-button a {
+    text-decoration: none;
+    color: #262625;
+    background-color: rgb(162, 191, 254);
+    border-radius: 18px;
+    margin-top: 20px;
+    margin-bottom: 35px;
+    padding: 12px 30px;
+    font-weight: bold;
+}
+
+.main-lobby {
+    padding-top: 70px;
+    padding-bottom: 70px;
+    background-color: #262625;
+}
+
+.main-lobby form {
+    display: block;
+    margin: auto;
+    width: 600px;
+    height: 400px;
+    border-radius: 23px;
+}
+
+.main-lobby-body {
+    width: 100%;
+    display: block;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-color: #1a1a1a;
+    border-bottom-left-radius: 23px;
+    border-bottom-right-radius: 23px;
+}
+
+form h2 {
+    color: white;
+    padding: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+.main-lobby-body button {
+    padding: 10px 25px;
+    border-radius: 10px;
+    background-color: rgb(162, 191, 254);
+    color: #262625;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+form .header {
+    width: 100%;
+    background-color: #363739;
+    border-top-right-radius: 23px;
+    border-top-left-radius: 23px;
+}
+
+.main-lobby-body input {
+    width: 70%;
+    padding: 9px 10px;
+    border-radius: 10px;
+    background-color: #363739;
+    border: none;
+    color: white;
+}
+
+form label {
+    color: white;
+}
+
+@media only screen and (max-width:622px) {
+    .main-lobby form {
+        width: 468px;
+    }
+}
+@media only screen and (max-width:497px) {
+    .main-lobby form {
+        width: 364px;
+    }
+}
+@media only screen and (max-width:378px) {
+    .main-lobby form {
+        width: 291px;
+    }
+}
