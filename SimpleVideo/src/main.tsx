@@ -4,10 +4,6 @@ import "./index.css";
 import SocketProvider from "./context/SocketProvider.tsx";
 import {
   RecoilRoot,
-  atom,
-  selector,
-  useRecoilState,
-  useRecoilValue,
 } from "recoil";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(

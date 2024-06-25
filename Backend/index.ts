@@ -63,7 +63,7 @@ io.on("connection", (socket) => {
 
   socket.on("send", ({ message }) => {
     console.log(message);
-    const usersArray = rooms[roomnumber].users;
+    const usersArray = rooms[roomnumber]?.users;
     let name;
     for (let index = 0; index < usersArray.length; index++) {
       if (socket.id === usersArray[index].id) {
@@ -82,7 +82,7 @@ io.on("connection", (socket) => {
     let name2;
     let newleftuserarray;
     console.log("Socket disconnected: " + socket.id);
-    const usersArray2 = rooms[roomnumber].users;
+    const usersArray2 = rooms[roomnumber]?.users;
     for (let index = 0; index < usersArray2.length; index++) {
       if (socket.id == usersArray2[index].id) {
         name2 = usersArray2[index].name;
