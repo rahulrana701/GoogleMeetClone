@@ -56,6 +56,14 @@ Access the application:
 
   Open http://localhost:5173 in your browser.
 
+## Getting Started:
+ ### Containarized way to run the application:
+     Install Docker locally 
+     Pull The Image 
+     docker pull rahul0003/googlemeetclone
+     run command 
+     docker run -p 3000:3000/googlemeetclone
+
 ## Contributing:
 
   
