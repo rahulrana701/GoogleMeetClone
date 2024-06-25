@@ -35,7 +35,9 @@ let peerConnection: RTCPeerConnection;
 (async () => {
   try {
     const response = await fetch(
-      `https://rrturnserver.metered.live/api/v1/turn/credentials?apiKey=${process.env.REACT_APP_API_KEY}`
+      `https://rrturnserver.metered.live/api/v1/turn/credentials?apiKey=${
+        import.meta.env.VITE_API_KEY
+      }`
     );
     if (!response.ok) {
       throw new Error(
