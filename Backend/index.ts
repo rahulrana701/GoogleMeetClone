@@ -93,6 +93,10 @@ io.on("connection", (socket) => {
       }
       console.log("no user found");
     }
+    if (newleftuserarray != undefined) {
+      rooms[roomnumber].users = newleftuserarray;
+    }
+    console.log(newleftuserarray);
 
     socket.to(roomnumber).emit("user-left", { userId: socket.id, name2 });
     socket.to(roomnumber).emit("participant-left", newleftuserarray);
