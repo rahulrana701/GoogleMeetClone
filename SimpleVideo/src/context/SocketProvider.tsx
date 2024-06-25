@@ -11,7 +11,7 @@ interface SocketProviderProps {
 }
 
 export default function SocketProvider({ children }: SocketProviderProps) {
-  const socket = io(import.meta.env.VITE_BACKEND_URL);
+  const socket = io("http://localhost:3000");
   return (
     <SocketContext.Provider value={socket}>{children}</SocketContext.Provider>
   );

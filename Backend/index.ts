@@ -25,6 +25,8 @@ const io = new Server(server, {
   },
 });
 
+app.use(express.static("public"));
+
 io.on("connection", (socket) => {
   let roomnumber: string;
   console.log("socket is connected" + socket.id);

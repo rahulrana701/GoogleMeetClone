@@ -14,6 +14,7 @@ const io = new socket_io_1.Server(server, {
         origin: "*",
     },
 });
+app.use(express_1.default.static("public"));
 io.on("connection", (socket) => {
     let roomnumber;
     console.log("socket is connected" + socket.id);
@@ -45,8 +46,9 @@ io.on("connection", (socket) => {
         socket.to(roomnumber).emit("reply-new-ice-candidate", candidate);
     });
     socket.on("send", ({ message }) => {
+        var _a;
         console.log(message);
-        const usersArray = rooms[roomnumber].users;
+        const usersArray = (_a = rooms[roomnumber]) === null || _a === void 0 ? void 0 : _a.users;
         let name;
         for (let index = 0; index < usersArray.length; index++) {
             if (socket.id === usersArray[index].id) {
@@ -61,10 +63,11 @@ io.on("connection", (socket) => {
         });
     });
     socket.on("disconnect", () => {
+        var _a;
         let name2;
         let newleftuserarray;
         console.log("Socket disconnected: " + socket.id);
-        const usersArray2 = rooms[roomnumber].users;
+        const usersArray2 = (_a = rooms[roomnumber]) === null || _a === void 0 ? void 0 : _a.users;
         for (let index = 0; index < usersArray2.length; index++) {
             if (socket.id == usersArray2[index].id) {
                 name2 = usersArray2[index].name;
@@ -73,6 +76,10 @@ io.on("connection", (socket) => {
             }
             console.log("no user found");
         }
+        if (newleftuserarray != undefined) {
+            rooms[roomnumber].users = newleftuserarray;
+        }
+        console.log(newleftuserarray);
         socket.to(roomnumber).emit("user-left", { userId: socket.id, name2 });
         socket.to(roomnumber).emit("participant-left", newleftuserarray);
     });

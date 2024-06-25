@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
-    "backend": "tsc && node ./dist/index.js"
+    "backend": "tsc && node ./compiled/index.js",
+    "start": " cd ../SimpleVideo && npm run build && rm -rf ../Backend/public && mkdir -p ../Backend/public && mv ./dist/* ../Backend/public && cd ../Backend && npm run backend"
   },
   "keywords": [],
   "author": "",
