@@ -46,7 +46,7 @@ Experience real-time video calls with peer-to-peer connections and seamless comm
 
      cd Backend 
      npm install 
-     npm run dev
+     npm run backend
 
 ### Start the frontned:
     npm install
