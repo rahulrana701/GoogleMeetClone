@@ -165,6 +165,16 @@ export default function Room() {
     });
   }, [socket]);
 
+  const handlecloseparticipants = async () => {
+    console.log("clicking");
+    const closeparticipants = document.querySelector(
+      ".show-participants"
+    ) as HTMLElement | null;
+    if (closeparticipants) {
+      closeparticipants.style.display = "none";
+    }
+  };
+
   return (
     <>
       <div className="navbar">
@@ -174,6 +184,12 @@ export default function Room() {
         <div className="participants-section">
           <div className="participants-section-heading">
             <h2>PARTICIPANTS</h2>
+            <img
+              style={{ right: "-213px" }}
+              className="crossimg"
+              src={cross}
+              onClick={handlecloseparticipants}
+            />
           </div>
           <div className="participant-name">
             {participants &&
@@ -232,6 +248,7 @@ export default function Room() {
 function VideoIcons() {
   const [handlingaudio, sethandlingaudio] = useRecoilState(handleaudio1);
   const [handlingcamera, sethandlingcamera] = useRecoilState(handlecamera1);
+  const socket = UseSocketContext();
   const localStreamy = useRecoilValue(localstreamstate);
 
   const handleScreenShare = async () => {
@@ -280,15 +297,145 @@ function VideoIcons() {
     }
   };
   const handleshowchat = async () => {
-    const a = document.querySelector(".show-chat");
-    if (a instanceof HTMLElement) {
-      a.style.display = "block";
+    console.log("clicking");
+    const bultra = document.querySelector(".show-chat");
+    if (bultra instanceof HTMLElement) {
+      if (bultra.style.display == "none") {
+        bultra.style.display = "block";
+      }
+    }
+
+    const b = document.querySelector(".chat-section");
+    if (b instanceof HTMLElement) {
+      if (b.classList.contains("chat-section")) {
+        b.classList.remove("chat-section");
+        b.classList.add("show-chat");
+      } else {
+        b.classList.remove("show-chat");
+        b.classList.add("chat-section");
+      }
+    }
+
+    const b1 = document.querySelector(".chat-section-heading");
+    if (b1 instanceof HTMLElement) {
+      if (b1?.classList.contains("chat-section-heading")) {
+        b1.classList.remove("chat-section-heading");
+        b1.classList.add("show-chat-section-heading");
+      } else {
+        b1.classList.remove("show-chat-section-heading");
+        b1.classList.add("chat-section-heading");
+      }
+    }
+
+    const b2 = document.querySelector(".actual-chat");
+    if (b2 instanceof HTMLElement) {
+      if (b2?.classList.contains("actual-chat")) {
+        b2.classList.remove("actual-chat");
+        b2.classList.add("show-actual-chat");
+      } else {
+        b2.classList.remove("show-actual-chat");
+        b2.classList.add("actual-chat");
+      }
+    }
+
+    const b3 = document.querySelector(".actual-chat-2");
+    if (b3 instanceof HTMLElement) {
+      if (b3?.classList.contains("actual-chat-2")) {
+        b3.classList.remove("actual-chat-2");
+        b3.classList.add("show-actual-chat-2");
+      } else {
+        b3.classList.remove("show-actual-chat-2");
+        b3.classList.add("actual-chat-2");
+      }
+    }
+
+    const b4 = document.querySelector(".chat-section-input");
+    if (b4 instanceof HTMLElement) {
+      if (b4?.classList.contains("chat-section-input")) {
+        b4.classList.remove("chat-section-input");
+        b4.classList.add("show-chat-section-input");
+      } else {
+        b4.classList.remove("show-chat-section-input");
+        b4.classList.add("chat-section-input");
+      }
+    }
+
+    const b5 = document.querySelector(".merainput");
+    if (b5 instanceof HTMLElement) {
+      if (b5?.classList.contains("merainput")) {
+        b5.classList.remove("merainput");
+        b5.classList.add("show-merainput");
+      } else {
+        b5.classList.remove("show-merainput");
+        b5.classList.add("merainput");
+      }
+    }
+
+    const b6 = document.querySelector(".merabutton");
+    if (b6 instanceof HTMLElement) {
+      if (b6?.classList.contains("merabutton")) {
+        b6.classList.remove("merabutton");
+        b6.classList.add("show-merabutton");
+      } else {
+        b6.classList.remove("show-merabutton");
+        b6.classList.add("merabutton");
+      }
     }
   };
+
   const handleshowparticipants = async () => {
-    const partici = document.querySelector(".show-participants");
-    partici?.classList.toggle("show");
+    const bultra = document.querySelector(".show-participants");
+    if (bultra instanceof HTMLElement) {
+      if (bultra.style.display == "none") {
+        bultra.style.display = "block";
+      }
+    }
+
+    const a = document.querySelector(".participants-section");
+    if (a instanceof HTMLElement) {
+      if (a?.classList.contains("participants-section")) {
+        a.classList.remove("participants-section");
+        a.classList.add("show-participants");
+      } else {
+        a.classList.remove("show-participants");
+        a.classList.add("participants-section");
+      }
+    }
+
+    const a1 = document.querySelector(".participants-section-heading");
+    if (a1 instanceof HTMLElement) {
+      if (a1?.classList.contains("participants-section-heading")) {
+        a1.classList.remove("participants-section-heading");
+        a1.classList.add("show-participants-section-heading");
+      } else {
+        a1.classList.remove("show-participants-section-heading");
+        a1.classList.add("participants-section-heading");
+      }
+    }
+
+    const a2 = document.querySelector(".participant-name");
+    if (a2 instanceof HTMLElement) {
+      if (a2?.classList.contains("participant-name")) {
+        a2.classList.remove("participant-name");
+        a2.classList.add("show-participant-name");
+      } else {
+        a2.classList.remove("show-participant-name");
+        a2.classList.add("participant-name");
+      }
+    }
+
+    const a3 = document.querySelector(".single-participant-name");
+    if (a3 instanceof HTMLElement) {
+      if (a3?.classList.contains("single-participant-name")) {
+        a3.classList.remove("single-participant-name");
+        a3.classList.add("show-single-participant-name");
+      } else {
+        a3.classList.remove("show-single-participant-name");
+        a3.classList.add("single-participant-name");
+      }
+    }
   };
+
   return (
     <>
       <img src={handlingaudio ? micoon : micoff} onClick={handleaudio} />
@@ -392,53 +539,6 @@ function Chatcontainer() {
           </button>
         </div>
       </div>
-
-      {/* FOR MOBILE USERS */}
-
-      {/* <div className="show-participants">
-        <div className="show-participants-border">
-          <div className="show-participants-section-heading">
-            <h2>PARTICIPANTS</h2>
-          </div>
-          <div className="show-participant-name">
-            {participants.map((name, index) => (
-              <p className="show-single-participant-name" key={index}>
-                {name.name}
-              </p>
-            ))}
-          </div>
-        </div>
-      </div> */}
-
-      {/* <div className="show-chat">
-        <div className="show-chat-border">
-          <div className="show-chat-section-heading">
-            <h2>CHAT SECTION</h2>
-            <img src={cross} onClick={handleclosechat} />
-          </div>
-          <div className="show-actual-chat">
-            {participants.map((name, index) => (
-              <h4 key={index}>{name.name} joined the chat 🎉 🎉</h4>
-            ))}
-            <div className="show-actual-chat-2" ref={messageContainer}></div>
-          </div>
-          <div className="show-chat-section-input">
-            <input
-              className="show-merainput"
-              value={messageinput}
-              onChange={(e) => {
-                setmessageinput(e.target.value);
-              }}
-              type="text"
-              name=""
-              placeholder="ENTER YOUR MESSAGE"
-            />
-            <button className="show-merabutton" onClick={handleSendMessage}>
-              send
-            </button>
-          </div>
-        </div>
-      </div> */}
     </>
   );
 }
