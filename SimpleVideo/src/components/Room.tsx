@@ -248,7 +248,6 @@ export default function Room() {
 function VideoIcons() {
   const [handlingaudio, sethandlingaudio] = useRecoilState(handleaudio1);
   const [handlingcamera, sethandlingcamera] = useRecoilState(handlecamera1);
-  const socket = UseSocketContext();
   const localStreamy = useRecoilValue(localstreamstate);
 
   const handleScreenShare = async () => {
